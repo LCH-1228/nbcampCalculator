@@ -12,7 +12,7 @@ Calculation 프로토콜을 따르는 연산기능(더하기, 빼기, 나누기,
 
 ## 4. Project Structure (프로젝트 구조)
 ```plaintext
-project/
+Calculator/
 ├── Calculator.playground
 │   ├── Contents.swift
 │   ├── Sources
@@ -22,11 +22,6 @@ project/
 │   │   ├── MultiplyOperation.swift
 │   │   ├── RemainderOperation.swift
 │   │   └── SubtractOperation.swift
-│   ├── contents.xcplayground
-│   └── playground.xcworkspace
-│       ├── contents.xcworkspacedata
-│       └── xcuserdata
-│           └── lee.xcuserdatad
-│               └── UserInterfaceState.xcuserstate
+│   └── contents.xcplayground
 └── README.md
 ```
