@@ -1,4 +1,4 @@
-//Calculation 프로토콜을 채택하는 클래스 Calculator 정의
+//Calculator 클래스 정의
 public class Calculator {
     
     // 프로퍼티에 4칙 연산 class를 인스턴스로 할당.
