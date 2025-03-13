@@ -1,5 +1,5 @@
-// 빼기 연산 클래스
-public class SubtractOperation {
+//Calculation 프로토콜을 채택하는 뺄셈 기능의 SubtractOperation 클래스 정의
+public class SubtractOperation: Calculation {
     
     public init() {
         

@@ -1,5 +1,5 @@
-// 나누기 연산 클래스
-public class DivideOperation {
+//Calculation 프로토콜을 채택하는 나눗셈 기능의 DivideOperation 클래스 정의
+public class DivideOperation: Calculation {
     
     public init() {
         

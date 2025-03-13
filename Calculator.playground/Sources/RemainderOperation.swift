@@ -1,5 +1,5 @@
-// 나머지 연산 클래스
-public class RemainderOperation {
+//Calculation 프로토콜을 채택하는 나머지 계산 기능의 RemaindOperation 클래스 정의
+public class RemainderOperation: Calculation {
     
     public init() {
         

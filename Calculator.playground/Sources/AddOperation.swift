@@ -1,6 +1,6 @@
-// 더하기 연산 클래스
-public class Addoperation {
-    
+//Calculation 프로토콜을 채택하는 덧셈 기능의 Addoperation 클래스 정의
+public class AddOperation: Calculation {
+
     public init() {
         
     }

@@ -1,5 +1,5 @@
-// 곱하기 연산 클래스
-public class MultiplyOperation {
+//Calculation 프로토콜을 채택하는 곱셈 기능의 MultiplyOperation 클래스 정의
+public class MultiplyOperation: Calculation {
     
     public init() {
         
