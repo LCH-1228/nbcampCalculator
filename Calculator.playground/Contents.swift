@@ -1,9 +1,10 @@
 //Calculator 클래스 정의
 public class Calculator {
     
-    // 프로퍼티에 4칙 연산 class를 인스턴스로 할당.
+    // operation 변수에 Calculation 프로토콜 채택
     var operation: Calculation
     
+    //operation init
     init(operation: Calculation) {
         self.operation = operation
     }
