@@ -1,29 +1,37 @@
 class Calculator {
-
-    func calculate(operator: String, firstNumber: Double, secondNumber: Double) {
-        switch `operator` {
-        case "+":
-            print(firstNumber + secondNumber)
-        case "-":
-            print(firstNumber - secondNumber)
-        case "/":
-            if firstNumber == 0 {
-                print("0을 \(secondNumber)로 나눌수 없습니다.")
-            } else if secondNumber == 0 {
-                print("\(firstNumber)를 0으로 나눌 수 없습니다.")
+    
+    // 프로퍼티에 4칙연산, 나머지 연산 class를 할당.
+    var addoperation = Addoperation()
+    var subtractOperation = SubtractOperation()
+    var multiplyOperation = MultiplyOperation()
+    var divideOperation = DivideOperation()
+    var remainderOperation = RemainderOperation()
+    
+    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
+    private enum CustomError: String, Error {
+        case operationNotMatching
+    }
+    
+    // 연산 결과 출력 메서드
+    func calculate(operation: String, firstNumber: Double, secondNumber: Double) {
+        
+        // do-catch 사용으로 operation에 다른문자가 들어오면 오류처리
+        do {
+            if operation == "+" {
+                addoperation.calculate(firstNumber, secondNumber)
+            } else if operation == "-" {
+                subtractOperation.calculate(firstNumber, secondNumber)
+            } else if operation == "*" {
+                multiplyOperation.calculate(firstNumber, secondNumber)
+            } else if operation == "/" {
+                divideOperation.calculate(firstNumber, secondNumber)
+            } else if operation == "%" {
+                remainderOperation.calculate(firstNumber, secondNumber)
             } else {
-                print(firstNumber / secondNumber)
+                throw CustomError.operationNotMatching //그이외의 경우에는 오류 throw
             }
-        case "*":
-            print(firstNumber * secondNumber)
-        case "%":
-            if firstNumber - firstNumber.rounded(.down) == 0 && secondNumber - secondNumber.rounded(.down) == 0 { //입력값이 정수일경우에만 연산실행 그외에는 불가 문구 반환
-                print(Int(firstNumber) % Int(secondNumber))
-            } else {
-                print("나머지 연산은 정수에서면 가능합니다.")
-            }
-        default:
-            print("연산 기호가 맞지 않습니다.")
+        } catch(let error) { // throw한 오류 catch
+            print("Error", error as! CustomError) // 사전에 정의된 CustomError 출력
         }
     }
 }
