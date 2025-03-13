@@ -2,13 +2,13 @@
 
 ## 1. Project Overview(프로젝트 개요)
 - 내일배움캠프 iOS스타터 과정 2주차 프로그래밍 기초 주차의 과제인 Swift 언어 학습 결과물입니다.
-- 
+
 ## 2. Key Features (주요 기능)
-더하기, 빼기, 나누기, 곱하기 연산을 수행할 수 있는 Calculator 클래스를 만들기
+더하기, 빼기, 나누기, 곱하기, 나머지 연산을 수행할 수 있는 Calculator 클래스
 
 ## 3. Language
 - swift ( Xcode Playground Swift 5.9 )
-- 
+
 ## 4. Project Structure (프로젝트 구조)
 ```plaintext
 project/
