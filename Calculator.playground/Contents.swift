@@ -1,5 +1,3 @@
-import Foundation
-
 //Calculation 프로토콜을 채택하는 클래스 Calculator 정의
 public class Calculator {
     
