@@ -1,11 +1,11 @@
 //Calculator 클래스 정의
 public class Calculator {
     
-    // operation 변수에 Calculation 프로토콜 채택
-    var operation: Calculation
+    // operation 변수에 Operation 프로토콜 할당
+    var operation: Operation
     
     //operation init
-    init(operation: Calculation) {
+    init(operation: Operation) {
         self.operation = operation
     }
     
