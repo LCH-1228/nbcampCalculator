@@ -1,10 +1,6 @@
-//Calculation 프로토콜을 채택하는 나눗셈 기능의 DivideOperation 클래스 정의
-public class DivideOperation: Calculation {
-    
-    public init() {
-        
-    }
-    
+//AbstractOperation 클래스를 상속받는 나눗셈 기능의 DivideOperation 클래스 정의
+public class DivideOperation: AbstractOperation {
+
     // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
     public enum CustomError: String, Error {
         case devideZero
@@ -12,7 +8,7 @@ public class DivideOperation: Calculation {
         case remindOperationNotInteger
     }
     
-    public func calculate(_ firstNumber: Double, _ secondNumber: Double) {
+    public override func calculate(_ firstNumber: Double, _ secondNumber: Double) {
         do {
             if firstNumber == 0 {
                 throw CustomError.devideZero

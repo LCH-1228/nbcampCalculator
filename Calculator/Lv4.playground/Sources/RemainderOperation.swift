@@ -1,10 +1,6 @@
-//Calculation 프로토콜을 채택하는 나머지 계산 기능의 RemaindOperation 클래스 정의
-public class RemainderOperation: Calculation {
-    
-    public init() {
-        
-    }
-    
+//AbstractOperation 클래스를 상속받는 나머지 연산 기능의 RemainderOperation 클래스 정의
+public class RemainderOperation: AbstractOperation {
+
     // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
     public enum CustomError: String, Error {
         case devideZero
@@ -12,7 +8,7 @@ public class RemainderOperation: Calculation {
         case remindOperationNotInteger
     }
     
-    public func calculate(_ firstNumber: Double, _ secondNumber: Double){
+    public override func calculate(_ firstNumber: Double, _ secondNumber: Double){
         var result: Int = 0
         
         // do-catch 사용으로 firstNumber와 secondNumber가 정수가 아니라면 오류처리
