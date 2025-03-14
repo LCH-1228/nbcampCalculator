@@ -11,8 +11,9 @@ class Calculator {
                  print("0을 \(secondNumber)로 나눌 수 없습니다.")
              } else if secondNumber == 0 {
                  print("\(firstNumber)를 0으로 나눌 수 없습니다.")
+             } else {
+                 print(firstNumber / secondNumber)
              }
-             print(firstNumber / secondNumber)
          case "*":
              print(firstNumber * secondNumber)
          default:
