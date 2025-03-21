@@ -1,8 +1,8 @@
 //AbstractOperation 클래스를 상속받는 나머지 연산 기능의 RemainderOperation 클래스 정의
-public class RemainderOperation: AbstractOperation {
-
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
-    public enum CustomError: String, Error {
+public class RemainderOperation: Operation {
+    
+    public init() {
+        
         case devideZero
         case devidedByZero
         case remindOperationNotInteger
