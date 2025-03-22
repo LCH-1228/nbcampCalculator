@@ -23,8 +23,6 @@ public class Calculator {
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
             case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
-                print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
@@ -43,8 +41,6 @@ public class Calculator {
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
             case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
-                print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
@@ -63,8 +59,6 @@ public class Calculator {
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
             case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
-                print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
@@ -83,8 +77,6 @@ public class Calculator {
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
             case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
-                print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
