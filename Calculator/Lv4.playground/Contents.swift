@@ -9,81 +9,81 @@ public class Calculator {
         self.operation = operation
     }
     
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
+    //printRsult 메서드의 두입력 파라미터가 입력된 두 파라미터의 타입이 모두 Int로 동일한 경우에 호출되는 메서드
     func printResult(_ firstNumber: Int, _ secondNumber: Int) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
             switch error as! CustomError {
-            case .devideZero:
+            case .devideZero: // DivideOperation에서 throw
                 print("0을 \(secondNumber)로 나눌 수 없습니다.")
-            case .devidedByZero:
+            case .devidedByZero: // DivideOperation에서 throw
                 print("\(firstNumber)를 0으로 나눌 수 없습니다.")
-            case .remaindZero:
+            case .remaindZero:// RemainderOperation에서 throw
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
-            case .remaindByZero:
+            case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger:
+            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
                 print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
     
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
+    //printRsult 메서드의 두입력 파라미터가 입력된 두 파라미터의 타입이 모두 Double로 동일한 경우에 호출되는 메서드
     func printResult(_ firstNumber: Double, _ secondNumber: Double) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
             switch error as! CustomError {
-            case .devideZero:
+            case .devideZero: // DivideOperation에서 throw
                 print("0을 \(secondNumber)로 나눌 수 없습니다.")
-            case .devidedByZero:
+            case .devidedByZero: // DivideOperation에서 throw
                 print("\(firstNumber)를 0으로 나눌 수 없습니다.")
-            case .remaindZero:
+            case .remaindZero:// RemainderOperation에서 throw
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
-            case .remaindByZero:
+            case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger:
+            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
                 print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
     
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
+    //printRsult 메서드의 두입력 파라미터가 입력된 첫번째 파라미터의 타입이 Int이고 두번째 파라미터의 타입이 Double 경우에 동작
     func printResult(_ firstNumber: Int, _ secondNumber: Double) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
             switch error as! CustomError {
-            case .devideZero:
+            case .devideZero: // DivideOperation에서 throw
                 print("0을 \(secondNumber)로 나눌 수 없습니다.")
-            case .devidedByZero:
+            case .devidedByZero: // DivideOperation에서 throw
                 print("\(firstNumber)를 0으로 나눌 수 없습니다.")
-            case .remaindZero:
+            case .remaindZero:// RemainderOperation에서 throw
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
-            case .remaindByZero:
+            case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger:
+            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
                 print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }
     }
     
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
+    //printRsult 메서드의 두입력 파라미터가 입력된 첫번째 파라미터의 타입이 Double이고 두번째 파라미터의 타입이 Int 경우에 동작
     func printResult(_ firstNumber: Double, _ secondNumber: Int) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
             switch error as! CustomError {
-            case .devideZero:
+            case .devideZero: // DivideOperation에서 throw
                 print("0을 \(secondNumber)로 나눌 수 없습니다.")
-            case .devidedByZero:
+            case .devidedByZero: // DivideOperation에서 throw
                 print("\(firstNumber)를 0으로 나눌 수 없습니다.")
-            case .remaindZero:
+            case .remaindZero:// RemainderOperation에서 throw
                 print("0을 \(secondNumber)로 나머지 계산할 수 없습니다.")
-            case .remaindByZero:
+            case .remaindByZero:// RemainderOperation에서 throw
                 print("\(firstNumber)를 0으로 나머지 계산할 수 없습니다.")
-            case .remainderOperationNotInteger:
+            case .remainderOperationNotInteger: //제네릭 채택으로 삭제 필요
                 print("정수가 아닌 숫자는 나머지 계산이 불가능합니다")
             }
         }

@@ -1,4 +1,4 @@
-//AbstractOperation 클래스를 상속받는 나눗셈 기능의 DivideOperation 클래스 정의
+//Operation 프로토콜을 채택하는 나눗셈 기능의 DivideOperation 클래스 정의
 public class DivideOperation: Operation {
     
     
@@ -6,6 +6,7 @@ public class DivideOperation: Operation {
         
     }
     
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 두 파라미터의 타입이 모두 BinaryInteger로 동일한 경우에 나누기 연산
     public func calculate<T>(_ firstNumber: T, _ secondNumber: T) throws where T: BinaryInteger {
         if firstNumber == 0 {
             throw CustomError.devideZero
@@ -17,6 +18,7 @@ public class DivideOperation: Operation {
 
     }
     
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 두 파라미터의 타입이 모두 BinaryFloatingPoint로 동일한 경우에 나누기 연산
     public func calculate<T>(_ firstNumber: T, _ secondNumber: T) throws where T: BinaryFloatingPoint {
         if firstNumber == 0 {
             throw CustomError.devideZero
@@ -27,24 +29,26 @@ public class DivideOperation: Operation {
         }
     }
     
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 첫번째 파라미터의 타입이 BinaryInteger이고 두번째 파라미터의 타입이 BinaryFloatingPoint 경우에 나누기 연산
     public func calculate<T1, T2>(_ firstNumber: T1, _ secondNumber: T2) throws where T1: BinaryInteger, T2: BinaryFloatingPoint  {
         if firstNumber == 0 {
             throw CustomError.devideZero
         } else if secondNumber == 0 {
             throw CustomError.devidedByZero
         } else {
-            print(T2(firstNumber) / secondNumber)
+            print(T2(firstNumber) / secondNumber) //연산을 위해 첫번째 파라미터 BinaryInteger 타입을 BinaryFloatPoint로 변환
         }
         
     }
     
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 첫번째 파라미터의 타입이 BinaryFloatingPoint이고 두번째 파라미터의 타입이 BinaryInteger 경우에 나누기 연산
     public func calculate<T1, T2>(_ firstNumber: T1, _ secondNumber: T2) throws where T1: BinaryFloatingPoint, T2: BinaryInteger  {
         if firstNumber == 0 {
             throw CustomError.devideZero
         } else if secondNumber == 0 {
             throw CustomError.devidedByZero
         } else {
-            print(firstNumber / T1(secondNumber))
+            print(firstNumber / T1(secondNumber))//연산을 위해 두번째 파라미터 BinaryInteger 타입을 BinaryFloatPoint로 변환
         }
     }
     
