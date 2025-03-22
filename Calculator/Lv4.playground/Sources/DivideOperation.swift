@@ -27,5 +27,26 @@ public class DivideOperation: Operation {
         }
     }
     
+    public func calculate<T1, T2>(_ firstNumber: T1, _ secondNumber: T2) throws where T1: BinaryInteger, T2: BinaryFloatingPoint  {
+        if firstNumber == 0 {
+            throw CustomError.devideZero
+        } else if secondNumber == 0 {
+            throw CustomError.devidedByZero
+        } else {
+            print(T2(firstNumber) / secondNumber)
+        }
+        
+    }
+    
+    public func calculate<T1, T2>(_ firstNumber: T1, _ secondNumber: T2) throws where T1: BinaryFloatingPoint, T2: BinaryInteger  {
+        if firstNumber == 0 {
+            throw CustomError.devideZero
+        } else if secondNumber == 0 {
+            throw CustomError.devidedByZero
+        } else {
+            print(firstNumber / T1(secondNumber))
+        }
+    }
+    
     
 }
