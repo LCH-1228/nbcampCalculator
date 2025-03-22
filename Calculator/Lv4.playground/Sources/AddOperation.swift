@@ -5,7 +5,7 @@ public class AddOperation: Operation {
         
     }
 
-    public func calculate(_ firstNumber: Double, _ secondNumber: Double) {
+    public func calculate<T>(_ firstNumber: T, _ secondNumber: T) throws where T: Numeric {
         print(firstNumber + secondNumber)
     }
 }
