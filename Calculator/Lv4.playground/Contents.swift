@@ -9,8 +9,8 @@ public class Calculator {
         self.operation = operation
     }
     
-    //printRsult 메서드의 두입력 파라미터가 입력된 두 파라미터의 타입이 모두 Int로 동일한 경우에 호출되는 메서드
-    func printResult(_ firstNumber: Int, _ secondNumber: Int) {
+    //printRsult 메서드에 입력된 두 파라미터의 타입이 모두 BinaryInteger로 동일한 경우에 호출되는 메서드
+    func printResult<T: BinaryInteger>(_ firstNumber: T, _ secondNumber: T) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
@@ -27,8 +27,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드의 두입력 파라미터가 입력된 두 파라미터의 타입이 모두 Double로 동일한 경우에 호출되는 메서드
-    func printResult(_ firstNumber: Double, _ secondNumber: Double) {
+    //printRsult 메서드에 입력된 두 파라미터의 타입이 모두 BinaryFloatingPoint로 동일한 경우에 호출되는 메서드
+    func printResult<T: BinaryFloatingPoint>(_ firstNumber: T, _ secondNumber: T) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
@@ -45,8 +45,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드의 두입력 파라미터가 입력된 첫번째 파라미터의 타입이 Int이고 두번째 파라미터의 타입이 Double 경우에 동작
-    func printResult(_ firstNumber: Int, _ secondNumber: Double) {
+    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 BinaryInteger이고 두번째 파라미터의 타입이 BinaryFloatingPoint 경우에 호출되는 메서드
+    func printResult<T1: BinaryInteger, T2: BinaryFloatingPoint>(_ firstNumber: T1, _ secondNumber: T2) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
@@ -63,8 +63,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드의 두입력 파라미터가 입력된 첫번째 파라미터의 타입이 Double이고 두번째 파라미터의 타입이 Int 경우에 동작
-    func printResult(_ firstNumber: Double, _ secondNumber: Int) {
+    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 BinaryFloatingPoint이고 두번째 파라미터의 타입이 BinaryInteger 경우에 호출되는 메서드
+    func printResult<T1: BinaryFloatingPoint, T2: BinaryInteger>(_ firstNumber: T1, _ secondNumber: T2) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
