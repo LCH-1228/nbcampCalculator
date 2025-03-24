@@ -27,8 +27,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드에 입력된 두 파라미터의 타입이 모두 BinaryFloatingPoint로 동일한 경우에 호출되는 메서드
-    func printResult<T: BinaryFloatingPoint>(_ firstNumber: T, _ secondNumber: T) {
+    //printRsult 메서드에 입력된 두 파라미터의 타입이 모두 FloatingPoint로 동일한 경우에 호출되는 메서드
+    func printResult<T: FloatingPoint>(_ firstNumber: T, _ secondNumber: T) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
@@ -45,8 +45,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 BinaryInteger이고 두번째 파라미터의 타입이 BinaryFloatingPoint 경우에 호출되는 메서드
-    func printResult<T1: BinaryInteger, T2: BinaryFloatingPoint>(_ firstNumber: T1, _ secondNumber: T2) {
+    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 BinaryInteger이고 두번째 파라미터의 타입이 FloatingPoint 경우에 호출되는 메서드
+    func printResult<T1: BinaryInteger, T2: FloatingPoint>(_ firstNumber: T1, _ secondNumber: T2) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
@@ -63,8 +63,8 @@ public class Calculator {
         }
     }
     
-    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 BinaryFloatingPoint이고 두번째 파라미터의 타입이 BinaryInteger 경우에 호출되는 메서드
-    func printResult<T1: BinaryFloatingPoint, T2: BinaryInteger>(_ firstNumber: T1, _ secondNumber: T2) {
+    //printRsult 메서드에 입력된 첫번째 파라미터의 타입이 FloatingPoint이고 두번째 파라미터의 타입이 BinaryInteger 경우에 호출되는 메서드
+    func printResult<T1: FloatingPoint, T2: BinaryInteger>(_ firstNumber: T1, _ secondNumber: T2) {
         do {
             try operation.calculate(firstNumber, secondNumber)
         } catch (let error) {
