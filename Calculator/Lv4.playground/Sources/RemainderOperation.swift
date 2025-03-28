@@ -1,30 +1,78 @@
-//AbstractOperation 클래스를 상속받는 나머지 연산 기능의 RemainderOperation 클래스 정의
-public class RemainderOperation: AbstractOperation {
-
-    // 오류처리를 위해 Error 프로토콜을 따르는 열거형 CustomError 선언
-    public enum CustomError: String, Error {
-        case devideZero
-        case devidedByZero
-        case remindOperationNotInteger
+//Operation 프로토콜을 채택하는 나머지 연산 기능의 RemainderOperation 클래스 정의
+public class RemainderOperation: Operation {
+    
+    public init() {
+        
     }
     
-    public override func calculate(_ firstNumber: Double, _ secondNumber: Double){
-        var result: Int = 0
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 두 파라미터의 타입이 모두 BinaryInteger로 동일한 경우에 나머지 연산(Int, Int 간 연산)
+    public func calculate<T: BinaryInteger>(_ firstNumber: T, _ secondNumber: T) throws -> Double {
+        if firstNumber == 0 {
+            throw CustomError.remaindZero
+        } else if secondNumber == 0 {
+            throw CustomError.remaindByZero
+        } else {
+            let result = firstNumber % secondNumber
+            print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
+            return Double(result)
+        }
         
-        // do-catch 사용으로 firstNumber와 secondNumber가 정수가 아니라면 오류처리
-        do {
-            if firstNumber == 0 {
-                throw CustomError.devideZero //firstNumber가 0일 경우 Error throw
-            } else if secondNumber == 0 {
-                throw CustomError.devidedByZero //secondNumber가 0닐 경우 Error throw
-            } else if firstNumber - firstNumber.rounded(.down) == 0 && secondNumber - secondNumber.rounded(.down) == 0 { // firstNumber와 secondNumber가 정수인지 판별하는 논리 작성
-                result = Int(firstNumber) % Int(secondNumber) //나머지연산은 Int에서만 가능하여 Double을 Int로 명시적 변환
-                print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
-            } else {
-                throw CustomError.remindOperationNotInteger //firstNumber와 secondNumber가 정수가 아닐경우 Error throw
-            }
-        } catch(let error) { //throw한 error catch
-            print("Error:",error as! CustomError) //사전에 정의된 CustomError 출력
+    }
+    
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 두 파라미터의 타입이 모두 FloatingPoint로 동일한 경우에 나머지 연산(Float, Flaot나 Double, Double간 연산)
+    public func calculate<T: FloatingPoint>(_ firstNumber: T, _ secondNumber: T) throws -> Double {
+        if firstNumber == 0 {
+            throw CustomError.remaindZero
+        } else if secondNumber == 0 {
+            throw CustomError.remaindByZero
+        } else {
+            //정수형 타입이 아닐경우 % 사용불가로 truncatingRemainder 사용하여 나머지 연산
+            let result = firstNumber.truncatingRemainder(dividingBy: secondNumber)
+            print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
+            return result.toDouble
         }
     }
+    
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 첫번째 파라미터의 타입이 BinaryInteger이고 두번째 파라미터의 타입이 FloatingPoint 경우에 나머지 연산(Int, Float나 Int, Double간 연산)
+    public func calculate<T1: BinaryInteger, T2: FloatingPoint>(_ firstNumber: T1, _ secondNumber: T2) throws -> Double {
+        if firstNumber == 0 {
+            throw CustomError.remaindZero
+        } else if secondNumber == 0 {
+            throw CustomError.remaindByZero
+        } else {
+            //정수형 타입이 아닐경우 % 사용불가로 truncatingRemainder 사용하여 나머지 연산
+            let result = Double(firstNumber).truncatingRemainder(dividingBy: secondNumber.toDouble)
+            print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
+            return result
+        }
+    }
+    
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 첫번째 파라미터의 타입이 FloatingPoint이고 두번째 파라미터의 타입이 BinaryInteger 경우에 나머지 연산(Float, Int나 Double, Int간 연산)
+    public func calculate<T1: FloatingPoint, T2: BinaryInteger>(_ firstNumber: T1, _ secondNumber: T2) throws -> Double {
+        if firstNumber == 0 {
+            throw CustomError.remaindZero
+        } else if secondNumber == 0 {
+            throw CustomError.remaindByZero
+        } else {
+            //정수형 타입이 아닐경우 % 사용불가로 truncatingRemainder 사용하여 나머지 연산
+            let result = firstNumber.toDouble.truncatingRemainder(dividingBy: Double(secondNumber))
+            print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
+            return result
+        }
+    }
+    
+    // Operation 프로토콜에서 정의된 calculate의 구현부로 입력된 첫번째 파라미터의 타입이 FloatingPoint이고 두번째 파라미터의 타입이 FloatingPoint 경우에 나머지 연산(Float, Double이나 Double, Float간 연산)
+    public func calculate<T1: FloatingPoint, T2: FloatingPoint>(_ firstNumber: T1, _ secondNumber: T2) throws -> Double {
+        if firstNumber == 0 {
+            throw CustomError.remaindZero
+        } else if secondNumber == 0 {
+            throw CustomError.remaindByZero
+        } else {
+            //정수형 타입이 아닐경우 % 사용불가로 truncatingRemainder 사용하여 나머지 연산
+            let result = firstNumber.toDouble.truncatingRemainder(dividingBy: secondNumber.toDouble)
+            print("\(firstNumber)을(를) \(secondNumber)(으)로 나눈 나머지는 \(result)입니다.")
+            return result
+        }
+    }
+    
 }
